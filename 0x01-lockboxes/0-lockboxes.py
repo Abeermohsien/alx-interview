@@ -2,9 +2,9 @@
 """solving the boxes puzzle"""
 
 
-def look_next_opened_box(opened_boxes):
+def next_opened_box(opened_boxes):
     """search for the nex5 opend box"""
-    for index, box in opened_boxes.items():
+    for i, box in opened_boxes.items():
         if box.get('status') == 'opened':
             box['status'] = 'opened/checked'
             return box.get('keys')
@@ -23,7 +23,7 @@ def canUnlockAll(boxes):
                 'status': 'opened',
                 'keys': boxes[0],
             }
-        keys = look_next_opened_box(aux)
+        keys = next_opened_box(aux)
         if keys:
             for key in keys:
                 try:
